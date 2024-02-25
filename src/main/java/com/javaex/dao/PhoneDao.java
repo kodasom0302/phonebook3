@@ -11,7 +11,7 @@ import com.javaex.vo.PersonVo;
 
 public class PhoneDao {
 	
-	public int personEdit(int no, String name, String hp, String company) {
+	public int personModify(int no, String name, String hp, String company) {
 		int count = -1;
 		
 		// 0. import java.sql.*;
@@ -31,8 +31,8 @@ public class PhoneDao {
 				// - sql문 준비
 				String query = "";
 				query += " UPDATE person SET  name=?,"
-						+ "						hp=?,"
-						+ "						company=?"
+						+ "					  hp=?,"
+						+ "					  company=?"
 						+ "WHERE person_id=? ";
 				
 				//바인딩
@@ -73,7 +73,7 @@ public class PhoneDao {
 		
 		return count;
 		
-	}//edit
+	}//modify
 	
 	public int personDelete(int no) {
 		
