@@ -86,15 +86,15 @@ public class PhonebookController extends HttpServlet {
 			*/
 			//WebUtil webUtil=new WebUtil();
 			WebUtil.redirect(request, response, "/phonebook3/pbc?action=list");
-		} else if("eform".equals(action)) {
-			System.out.println("eform:수정폼");
+		} else if("modifyform".equals(action)) {
+			System.out.println("modifyForm:수정폼");
 			int no = Integer.parseInt(request.getParameter("no"));
 			System.out.println(no);
 			
-			RequestDispatcher rd=request.getRequestDispatcher("/WEB-INF/editform.jsp");
+			RequestDispatcher rd=request.getRequestDispatcher("/WEB-INF/modifyForm.jsp");
 		    rd.forward(request, response);
-		} else if("edit".equals(action)) {
-			System.out.println("edit:수정");
+		} else if("modify".equals(action)) {
+			System.out.println("modify:수정");
 			
 			//파라미터 가져와서 출력해보기
 			int no = Integer.parseInt(request.getParameter("no"));
@@ -109,7 +109,7 @@ public class PhonebookController extends HttpServlet {
 		    
 		    //db 사용
 			PhoneDao phoneDao = new PhoneDao();
-			phoneDao.personEdit(no, name, hp, company);
+			phoneDao.personModify(no, name, hp, company);
 			
 			
 			//리다이랙트
